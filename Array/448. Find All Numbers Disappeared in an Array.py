@@ -23,3 +23,4 @@ class Solution:
                 nums[abs(n)-1] = - nums[abs(n)-1]
         
         return [i+1 for i in range(len(nums)) if nums[i] > 0]
+    
