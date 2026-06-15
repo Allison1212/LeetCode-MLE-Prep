@@ -1,6 +1,7 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
         v_list= ['a','e','i','o','u']
+        # string can not inplace the change use index so we need to convert it to list
         s_list = list(s)
         left = 0
         right = len(s) - 1
