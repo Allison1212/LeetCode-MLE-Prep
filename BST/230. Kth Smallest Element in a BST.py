@@ -21,6 +21,7 @@ class Solution:
         # return res[k-1]
 
         # Improve by early stop 
+        # The gap is we do not need to traverse the whole tree. 
         self.count = 0
         self.res = None
 
