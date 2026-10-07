@@ -39,3 +39,22 @@ class Solution:
             max_length = max(max_length,right-left + 1)
             right+=1
         return max_length
+
+        # Using set to track characters in the current window
+        left = right = 0
+        res = 0
+        seen = set()
+
+        while right < len(s):
+            while s[right] in seen:
+                seen.remove(s[left])
+                left +=1
+            
+            seen.add(s[right])
+            res = max(res, right - left + 1)
+            right +=1
+        return res
+        # 这里我的差距是没想到用set, 当不看顺序，看有没有就要想到set
+        # slide window
+        # 用while 处理duplication
+        
