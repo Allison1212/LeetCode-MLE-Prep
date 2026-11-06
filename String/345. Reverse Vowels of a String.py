@@ -1,30 +1,28 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        v_list= ['a','e','i','o','u']
-        # string can not inplace the change use index so we need to convert it to list
-        s_list = list(s)
+        vowels = set('aeiou')
         left = 0
         right = len(s) - 1
-        left_w = s_list[left]
-        right_w = s_list[right]  
+        s_list = list(s)
 
-        while right > left:
-            if left_w.lower() in v_list:
-                if right_w.lower() in v_list:
-                    s_list[left] = right_w
-                    s_list[right] = left_w
-                    right = right -1
-                    left = left + 1
-
-                    right_w = s_list[right]
-                    left_w = s_list[left] 
-                else:
-                    right = right - 1
-                    right_w = s_list[right] 
+        while left < right:
+            if s_list[left].lower() not in vowels:
+                left+=1
+            elif s_list[right].lower() not in vowels:
+                right-=1
             else:
-                left = left + 1
-                left_w = s_list[left]
+                left_l = s_list[left]
+                s_list[left] = s_list[right]
+                s_list[right] = left_l
+                left +=1
+                right-=1
+                    
         return "".join(s_list)
+
+        # Time complexity O(n)
+        # Space complexity O(n)
+        # string to list of letter use list(string)
+        # string to set of unique characters use set(string)
 
 
         
